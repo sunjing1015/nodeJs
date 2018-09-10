@@ -5,6 +5,7 @@ var fs = require("fs");
 http.createServer((req,res)=>{
     res.writeHead(200,{"Content-type":"text/html;charset=UTF-8"});
     if (req.url == "/red"){
+        //读文件
         fs.readFile("./yanse/red.html",(err,data)=>{
             res.end(data)
         });

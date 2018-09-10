@@ -1,5 +1,6 @@
 //引用http模块 require 加载
 var http = require("http");
+//                 创建服务器
 var server = http.createServer(function(req,res){
     //形参 和 实参  arguments
     //req => request 请求  res => response 响应
