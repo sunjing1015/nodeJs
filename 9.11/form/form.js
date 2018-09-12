@@ -13,6 +13,7 @@ http.createServer((req,res)=>{
         * 传输数据时分片段取传输防止数据量过大，卡奔进程
         *
         * */
+       //开始接收数据  data固定不变  chunk形参
         req.addListener("data",function(chunk){
             allData+=chunk
         })
@@ -20,7 +21,7 @@ http.createServer((req,res)=>{
         req.addListener("end",function(){
             res.writeHead(200,{"Content-type":"text/html;charset=utf-8"});
             var dataObj=allData.toString();
-            var obj=queryString.parse(dataObj);
+            var obj=queryString.parse(dataObj);  //用queryString.parse解析dataObj
             console.log(obj);
             // console.log(obj.name);
             var name=obj.name;
