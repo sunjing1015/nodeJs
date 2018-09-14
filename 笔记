@@ -187,3 +187,9 @@ navigator.userAgent     userAgent 属性是一个只读的字符串，声明了�
 
      明日工作安排：
             2018/09/04
+
+
+npm init    项目初始化  -y  默认所有配置
+npm install express --save           install==i        --save==-S
+npm install express --save-dev       --save-dev==-D
+            

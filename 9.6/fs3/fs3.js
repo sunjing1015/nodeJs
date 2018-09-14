@@ -36,21 +36,3 @@ http.createServer((req,res)=>{
         }
     }
 }).listen(3000,"127.0.0.1")
-
-
-//http.createServer((req,res)=>{
-//    var pathname=url.parse(req.url).pathname;
-//    var extname=path.extname(pathname);
-//    var mime=getmime(extname);
-//    res.writeHead(200,{"Content-type":mime})
-//    if(pathname=="/"){
-//        fs.readFile("./index.html")
-//    }
-//    res.end();
-//}).listen(3000,"127.0.0.1")
-
-
-
-
-
-
