@@ -192,4 +192,126 @@ navigator.userAgent     userAgent 属性是一个只读的字符串，声明了�
 npm init    项目初始化  -y  默认所有配置
 npm install express --save           install==i        --save==-S
 npm install express --save-dev       --save-dev==-D
-            
+
+
+
+mongodb  安装：
+1.打开安装包
+2.一直点击next，选择盘符
+3.finish
+4.找到mongodb安装的路径，直至找到bin，进入bin目录，在当前目录打开cmd
+5.在bin文件里面新建两个文件夹，data 数据文件 ， log日志
+6.命令：mongod --dbpath="e:/mongodb/data"  执行enter      
+
+
+mongodb数据库
+跨平台 面向对象轻量级的数据库    
+文档和集合
+集合：数据库的一种
+文档：document{
+    id:"1",
+    username:"hhh"
+}
+数据库的类型：关系型数据库   非关系型数据库
+启动数据库：mongod --dbpath="d:/mongodb/data"   mongo
+
+数据库
+
+增 insert
+db.集合名(如果该集合名之前已经存在，那么插入的数据在此基础上递增，如果集合名不存在的话，就新增集合名).insert({})
+db.集合名.insertMany([{"":"","":""},{"":"","":""}])  插入多个
+db.集合名.insertOne({})  插入单个
+db.createCollection("集合名")   创建集合
+
+删  drop()
+db.集合名.drop()  删除集合
+db.集合名.remove({}) 
+
+改update
+db.集合名.update({},{$set:{}})  第一个参数是要修改的对象，第二个参数是已修改的对象
+
+查
+db.集合名.find()
+db.集合名.find().pretty()   格式化
+db.集合名.find().limit(2)   截取  根据参数进行截取数据对应的个数
+db.集合名.find().skip(2)  跳过当前数据，查询后面的数据
+db.集合名.find({$or:[{},{}]})  或
+db.集合名.find({$and:[{},{}]})   且
+                (>) 大于 - $gt
+                (<) 小于 - $lt
+                (>=) 大于等于 - $gte
+                (<= ) 小于等于 - $lte
+                    不等于  $ne
+db.集合名.find().sort({"":1})   排序
+db.集合名.find().sort({"":-1})   排序
+
+
+
+命令： 
+show dbs   显示当前存在的数据库
+use 数据库名称   使用数据库
+show collections   显示当前选中数据库里的集合
+db.集合名.find()  查找test里面的东西
+db.集合名.find().pretty()   易读的方式来读取数据，可以使用 pretty() 方法
+db  输出当前是数据库
+
+db.集合名.update({'title':'MongoDB 教程'},{$set:{'title':'MongoDB'}})  更新标题
+db.集合名.update({'title':'MongoDB 教程'},{$set:{'title':'MongoDB'}},{multi:true})  修改多条相同的文档，则需要设置 multi 参数为 true。
+
+
+
+db.集合名.find({likes : {$gt : 100}})  大于操作符 - $gt
+db.集合名.find({likes : {$lt :200, $gt : 100}})    (<) 和 (>) 查询 - $lt 和 $gt
+ 
+
+类型	                    数字	    备注
+Double	                    1	 
+String	                    2	 
+Object	                    3	 
+Array	                    4	 
+Binary data	                5	    
+Undefined	                6	        已废弃。
+Object id	                7	 
+Boolean	                    8	 
+Date	                    9	 
+Null	                    10	 
+Regular Expression	        11	 
+JavaScript	                13	 
+Symbol	                    14	 
+JavaScript (with scope)	    15	 
+32-bit integer	            16	 
+Timestamp	                17	 
+64-bit integer	            18	 
+Min key	                    255	        Query with -1.
+Max key	                    127
+
+db.集合名.find({"title" : {$type : 2}})
+或
+db.集合名.find({"title" : {$type : 'string'}})
+
+skip(), limilt(), sort()三个放在一起执行的时候，执行的顺序是先 sort(), 然后是 skip()，最后是显示的 limit()。
+
+
+
+
+项目接口
+登录 login
+注册  register
+验证码  vericode
+获取验证码  checkveri
+修改密码  restpass
+退出登录  quit
+获取用户信息  returninfo
+获取用户列表  getadminlist
+编辑     edd
+删除     delete
+分页  查询
+
+
+
+
+body-parser  处理post请求
+cookie-parser   cookie请求
+express-session  缓存
+express-router  路由中间件
+mongodb  数据库
