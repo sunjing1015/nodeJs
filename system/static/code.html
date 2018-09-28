@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/jquery.js"></script>
+</head>
+
+<body>
+    <!-- <form action="http://127.0.0.1:3000/Handler/AdminHandler?action=checkveri" method="GET">
+        <input type="text" name="action" value="checkveri">
+        <input type="text" name="veri"/>
+        <input type="submit" value="提交">
+    </form> -->
+    <input type="text" id="txt">
+    <button id="btn">提交</button>
+
+    <script>
+        $(function () {
+            $("#btn").on("click", function () {
+                $.ajax({
+                    url: "http://127.0.0.1:3000/Handler/AdminHandler?action=checkveri",
+                    type: "get",
+                    dataType: "jsonp",
+                    data: {
+                        veri: $("#txt").val()
+                    },
+                    async: false
+                }).done(function (result) {
+                    console.log(result)
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>
